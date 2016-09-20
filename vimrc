@@ -5,7 +5,10 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
 Plug 'kien/ctrlp.vim'
-Plug 'Lokaltog/powerline'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 
@@ -61,10 +64,16 @@ nnoremap <C-t> :tabnew<CR>
 nnoremap <leader>br o// ----------------------------<esc>o
 
 " -----------
-" filetypes
+" filetype resolution
 " -----------
 au BufNewFile,BufRead *.cu set filetype=cuda
 au BufNewFile,BufRead *.cuh set filetype=cuda
 au BufNewFile,BufRead *SConscript set filetype=python
 au BufNewFile,BufRead *SConstruct set filetype=python
 au BufNewFile,BufRead *scons set filetype=python
+
+" -----------
+" filetype options
+" -----------
+au filetype lua setl sw=3 sts=3 ts=3
+au filetype python setl sw=4 sts=4 ts=4
