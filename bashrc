@@ -162,3 +162,14 @@ cb() {
 # ------------------------------------------------
 # Copy contents of a file
 function cbf() { cat "$1" | cb; }  
+
+body() {
+  end=$2
+  begin=$1
+  range="$((end - begin))"
+  head -n $2 ${*:3} | tail -n $range
+}
+
+alias opengrep='grep -v "Binary file" | cut -d ":" -f 1 | uniq | xargs vim -O'
+
+source ~/.bashrc_extra
